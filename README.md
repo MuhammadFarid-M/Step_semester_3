@@ -42,7 +42,7 @@ Branch model:
 
 ---
 
-## Date: 11-09-2026
+## Date: 04-09-2026
 
 **Today's Work:**
 - Created `feature/session_4` from `develop` for Session 4. Session 4 topic: **constructors_and_keywords** — taken from the PDFs' own footer, "Constructors and Java Keywords": parameterized constructors as validation gates, `this(...)` chaining, `this` for field/parameter clashes, `final` at variable/method/class level, `static` initialiser blocks and `instanceof` dispatch.
@@ -73,7 +73,7 @@ Branch model:
 
 ---
 
-## Date: 11-09-2026
+## Date: 28-08-2026
 
 **Today's Work:**
 - Created `feature/session_3` from `develop` for Session 3. Session 3 topic: **oops** — both PDFs are the Week 3 OOP set, covering classes and objects, constructors, instance vs static members, inheritance, `instanceof` dispatch, object references and null safety, and composition.
@@ -102,7 +102,7 @@ Branch model:
 
 ---
 
-## Date: 11-09-2026
+## Date: 21-08-2026
 
 **Today's Work:**
 - Created `feature/session_2` from `develop` for Session 2. Session 2 topic: **string** — every problem in both PDFs works directly on the String API (`charAt()`, `split()`, `substring()`, `lastIndexOf()`, `trim()`, `equalsIgnoreCase()`, `StringBuilder`, `Character.isLetter()`/`isDigit()`), so the topic package is named `string` exactly as the guide's own worked example shows.
@@ -131,7 +131,7 @@ Branch model:
 
 ---
 
-## Date: 11-09-2026
+## Date: 14-08-2026
 
 **Today's Work:**
 - Set up the repository branching structure: `main` (documentation only), `develop` (empty Java project skeleton), and `feature/session_1` created from `develop`.
