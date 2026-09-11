@@ -1,12 +1,5 @@
 package arrays_and_strings.assigment_problems;
 
-/**
- * Examination Cell tool that scans the assigned seat numbers for a hall and
- * flags any seat given to two different students.
- *
- * Constraint from the problem statement: no Collections class may be used, so
- * the check is done with arrays and nested loops only.
- */
 public class ExamHallSeatDuplicationChecker {
 
     public static void checkDuplicateSeats(int[] seatNumbers) {
@@ -17,8 +10,7 @@ public class ExamHallSeatDuplicationChecker {
 
         boolean duplicateFound = false;
         for (int current = 0; current < seatNumbers.length; current++) {
-            // Skip a seat number already reported from an earlier position, so a
-            // seat repeated three or more times is still printed only once.
+
             if (appearsEarlier(seatNumbers, current)) {
                 continue;
             }

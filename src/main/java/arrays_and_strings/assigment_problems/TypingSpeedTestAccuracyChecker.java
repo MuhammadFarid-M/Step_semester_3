@@ -1,9 +1,5 @@
 package arrays_and_strings.assigment_problems;
 
-/**
- * Typing-practice website checker: compares a typed attempt against the original
- * passage position by position and reports accuracy and the first mistake.
- */
 public class TypingSpeedTestAccuracyChecker {
 
     public static void checkTypingAccuracy(String original, String typed) {

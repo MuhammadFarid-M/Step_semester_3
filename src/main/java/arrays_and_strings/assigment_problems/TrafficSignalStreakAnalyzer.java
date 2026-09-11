@@ -1,9 +1,5 @@
 package arrays_and_strings.assigment_problems;
 
-/**
- * Traffic control tool that scans a day's signal log ('R', 'Y', 'G' readings)
- * and reports the longest continuous streak of the same colour.
- */
 public class TrafficSignalStreakAnalyzer {
 
     public static void findLongestStreak(String signalLog) {

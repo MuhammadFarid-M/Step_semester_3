@@ -1,9 +1,5 @@
 package arrays_and_strings.assigment_problems;
 
-/**
- * Moderation tool that profiles a movie review by word length, counting how many
- * words are Short (1-4 letters), Medium (5-8 letters) or Long (9+ letters).
- */
 public class MovieReviewWordLengthProfiler {
 
     public static void classifyWordLengths(String review) {
@@ -31,7 +27,6 @@ public class MovieReviewWordLengthProfiler {
         System.out.println("Short: " + shortWords + " | Medium: " + mediumWords + " | Long: " + longWords);
     }
 
-    /** Counts letters only, so trailing punctuation does not inflate a word's length. */
     private static int countLetters(String word) {
         int letterCount = 0;
         for (int index = 0; index < word.length(); index++) {

@@ -2,10 +2,6 @@ package arrays_and_strings.class_problems;
 
 import java.util.Random;
 
-/**
- * Wellness camp report: calculates the BMI of every employee in a department,
- * classifies their health status and prints the results as a table.
- */
 public class BmiCalculatorForTeam {
 
     private static final int TEAM_SIZE = 10;

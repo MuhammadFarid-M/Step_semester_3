@@ -1,12 +1,7 @@
 package arrays_and_strings.class_problems;
 
-/**
- * Unique Letter Hunt mini-game: finds the first character in the input that
- * appears exactly once in the whole text.
- */
 public class FirstNonRepeatingCharacter {
 
-    /** Returned when every character in the text repeats. */
     private static final char NONE_FOUND = '\0';
 
     public static char findFirstNonRepeatingChar(String text) {

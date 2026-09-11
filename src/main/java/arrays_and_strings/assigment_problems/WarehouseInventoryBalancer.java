@@ -1,9 +1,5 @@
 package arrays_and_strings.assigment_problems;
 
-/**
- * Warehouse stock report: compares the total quantity held in Section A and
- * Section B and locates the single highest-quantity item in the warehouse.
- */
 public class WarehouseInventoryBalancer {
 
     public static void analyzeInventory(int[] sectionA, int[] sectionB) {
@@ -27,7 +23,7 @@ public class WarehouseInventoryBalancer {
                 highestItemNumber = index + 1;
             }
         }
-        // Strictly greater, so a tie keeps the Section A item that was found first.
+
         for (int index = 0; index < sectionB.length; index++) {
             if (sectionB[index] > highestQuantity) {
                 highestQuantity = sectionB[index];

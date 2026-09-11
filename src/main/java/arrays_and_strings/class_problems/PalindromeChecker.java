@@ -1,12 +1,7 @@
 package arrays_and_strings.class_problems;
 
-/**
- * QA toolkit that verifies a text with three independent palindrome checks -
- * iterative comparison, recursion and array reversal - which must always agree.
- */
 public class PalindromeChecker {
 
-    /** Compares characters from both ends moving towards the middle. */
     public static boolean isPalindromeIterative(String text) {
         String cleaned = cleanText(text);
         int left = 0;
@@ -21,7 +16,6 @@ public class PalindromeChecker {
         return true;
     }
 
-    /** Compares the first and last characters, then recurses on the shrinking middle. */
     public static boolean isPalindromeRecursive(String text) {
         return checkRecursively(cleanText(text));
     }
@@ -36,7 +30,6 @@ public class PalindromeChecker {
         return checkRecursively(cleaned.substring(1, cleaned.length() - 1));
     }
 
-    /** Reverses a character array copy of the text and compares it with the original. */
     public static boolean isPalindromeArrayReversal(String text) {
         String cleaned = cleanText(text);
         char[] characters = cleaned.toCharArray();
@@ -47,7 +40,6 @@ public class PalindromeChecker {
         return cleaned.equals(new String(reversed));
     }
 
-    /** Keeps only letters and digits, in lower case, so phrases with spaces work too. */
     private static String cleanText(String text) {
         if (text == null) {
             return "";

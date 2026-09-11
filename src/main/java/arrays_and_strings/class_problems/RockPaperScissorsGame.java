@@ -2,10 +2,6 @@ package arrays_and_strings.class_problems;
 
 import java.util.Random;
 
-/**
- * Arcade module that plays a Rock-Paper-Scissors match between a player and the
- * computer, records the outcome of every round and prints a final scoreboard.
- */
 public class RockPaperScissorsGame {
 
     private static final String ROCK = "Rock";
@@ -21,7 +17,6 @@ public class RockPaperScissorsGame {
     private static final int ROUNDS_PER_MATCH = 5;
     private static final Random RANDOM = new Random();
 
-    /** Returns the outcome of a single round, judged from the player's point of view. */
     public static String playRound(String playerMove, String computerMove) {
         if (playerMove == null || computerMove == null) {
             return INVALID_MOVE;
@@ -44,7 +39,6 @@ public class RockPaperScissorsGame {
         return MOVES[RANDOM.nextInt(MOVES.length)];
     }
 
-    /** Accepts "rock", "ROCK" or " Rock " and turns all of them into "Rock". */
     private static String normaliseMove(String move) {
         String trimmed = move.trim();
         if (trimmed.isEmpty()) {
@@ -62,7 +56,6 @@ public class RockPaperScissorsGame {
         return false;
     }
 
-    /** Plays every round, prints each result, then the round table and the scoreboard. */
     public static void playMatch(String[] playerMoves, String[] computerMoves) {
         if (playerMoves == null || computerMoves == null || playerMoves.length == 0
                 || playerMoves.length != computerMoves.length) {
