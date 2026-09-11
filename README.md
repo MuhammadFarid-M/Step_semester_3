@@ -15,6 +15,35 @@ Branch model:
 ## Date: 11-09-2026
 
 **Today's Work:**
+- Created `feature/session_3` from `develop` for Session 3. Session 3 topic: **oops** — both PDFs are the Week 3 OOP set, covering classes and objects, constructors, instance vs static members, inheritance, `instanceof` dispatch, object references and null safety, and composition.
+- Solved all 5 live-session practice problems in `oops/class_problems/`:
+  - `AttendanceSystem.java` — `SrmStudent` with a constructor, instance `isEligible()`, and static `classAverage()` over an array of students.
+  - `FeeAccountExtension.java` — `HostelFeeAccount` and `ScholarshipFeeAccount` both extend `FeeAccount` without `FeeAccount` being edited; `instanceof` picks the right behaviour per account.
+  - `HostelRoomAllotment.java` — `findAvailableRoom()` returns null when every room is full and `safeAllot()` checks for it, so no path can throw a NullPointerException.
+  - `InstanceStaticBoundary.java` — reproduces the all-static bug where the second student overwrites the first, then the corrected instance/static split.
+  - `FeeAndHostelMiniSystem.java` — capstone: one student object holding a fee account and a room as fields, with a static student counter.
+- Solved all 5 take-home assignment problems in `oops/assigment_problems/`:
+  - `LibraryFineSystem.java` — `BookIssue` with instance `fineAmount()` and static `totalFineCollected()`.
+  - `EmployeeExtension.java` — `ManagerEmployee` and `InternEmployee` extend `Employee` without editing it.
+  - `ParkingSlotAllotment.java` — null-safe parking allotment proving both the available and the full path.
+  - `LibraryMembershipBoundary.java` — the all-static membership bug reproduced, then redesigned with `memberId` derived from a static `memberCount`.
+  - `HrAndParkingMiniSystem.java` — capstone: `CompanyEmployeeRecord` holding an `Employee` and a `ParkingSlot` as fields, with a static record counter.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDFs.
+
+**Next Session Plan:**
+- Start Session 4 on a new `feature/session_4` branch created from `develop`.
+- Revise method overriding and abstract classes, since this week only used inheritance plus `instanceof` and never overrode a parent method.
+- Read up on why `instanceof` chains are considered a design smell and how polymorphism replaces them.
+
+**Issues Faced:**
+- The capstone problems reuse classes defined by earlier problems in the same package. Keeping each class as a separate top-level class made `javac -Xlint:all` warn that an auxiliary class was being used from outside its own file, so the shared classes were made static nested classes of their problem's public class and imported by name. That removed all 36 warnings and keeps one `.java` file per problem.
+- Three problems in each PDF ask for a written justification in a code comment, so those comments were added deliberately; the rest of the code has none.
+
+---
+
+## Date: 11-09-2026
+
+**Today's Work:**
 - Created `feature/session_2` from `develop` for Session 2. Session 2 topic: **string** — every problem in both PDFs works directly on the String API (`charAt()`, `split()`, `substring()`, `lastIndexOf()`, `trim()`, `equalsIgnoreCase()`, `StringBuilder`, `Character.isLetter()`/`isDigit()`), so the topic package is named `string` exactly as the guide's own worked example shows.
 - Solved all 5 live-session practice problems in `string/class_problems/`:
   - `VowelAndConsonantCounter.java` — case-insensitive vowel/consonant count with `charAt()`, spaces ignored.
