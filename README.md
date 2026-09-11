@@ -15,6 +15,37 @@ Branch model:
 ## Date: 11-09-2026
 
 **Today's Work:**
+- Created `feature/session_4` from `develop` for Session 4. Session 4 topic: **constructors_and_keywords** — taken from the PDFs' own footer, "Constructors and Java Keywords": parameterized constructors as validation gates, `this(...)` chaining, `this` for field/parameter clashes, `final` at variable/method/class level, `static` initialiser blocks and `instanceof` dispatch.
+- Solved all 5 live-session practice problems in `constructors_and_keywords/class_problems/`:
+  - `BusTicketBookingValidator.java` — `BusTicket` with no usable no-arg constructor; invalid bookings fail at construction, duplicates are counted separately, and check-in is idempotent.
+  - `RemainderFairFareSplitter.java` — three constructors linked by `this(...)`; the breakdown is computed in paise so the shares always sum back to the exact fare.
+  - `BusRouteRankingEngine.java` — signed `compareTo` (priority, then code ignoring case, then name length) with a hand-written stable insertion sort.
+  - `TieredBoardingPenaltyCalculator.java` — `final` class, `final` field and `final` method; closed-form bracket maths with a minimum floor that never applies at zero minutes late.
+  - `NightlyFleetReconciliationEngine.java` — `static` block for class-level setup, constructor chaining, `instanceof` to settle sleeper accounts differently, and a batch that tolerates null entries.
+- Solved all 5 take-home assignment problems in `constructors_and_keywords/assigment_problems/`:
+  - `GhostOrderValidator.java` — blank, null and whitespace-only fields rejected at construction; a second `markDelivered()` warns instead of silently repeating.
+  - `DeliverySlotBooking.java` — two constructors chained through `this(...)`, with "ASAP" written exactly once as a constant.
+  - `CanteenTrustScoreRankingEngine.java` — trust-score ranking with the same deterministic tie-break chain and a hand-written stable sort.
+  - `ExamWeekSurgeFeeCalculator.java` — tiered surge fee with a minimum floor, validated at the point of calculation.
+  - `NightlyMultiKitchenReconciliationEngine.java` — `static` block, chained constructors, `instanceof` for premium accounts, null-safe batch processing.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDFs.
+
+**Next Session Plan:**
+- Start Session 5 on a new `feature/session_5` branch created from `develop`.
+- Revise interfaces and abstract classes, since these problems leaned on `instanceof` dispatch where polymorphism would normally be the cleaner answer.
+- Practise more remainder/rounding problems, as the fare split was the easiest place this week to lose money to floating point.
+
+**Issues Faced:**
+- Problem 1 does not spell out what makes a name "meaningful", and the sample expects `Ravi123` to be rejected even though it is neither blank nor null. Settled on letters and spaces only, which is the only rule that reproduces the stated `Valid: 1 | Rejected: 3 | Duplicates skipped: 1`.
+- The fare split loses paise if doubles are divided directly, so the whole calculation is done in integer paise and the leftover is handed to the last shares, which is what makes `100000 / 3` come out as `[33333.33, 33333.33, 33333.34]`.
+- The ranking problems never state the default priority. Working backwards from the sample ordering showed it has to be 3, which the assignment PDF then confirms for the canteen version.
+- For mismatched parallel array lengths the batch is rejected before anything is processed, rather than running over the shortest array, since a partly-settled batch would charge the wrong passenger.
+
+---
+
+## Date: 11-09-2026
+
+**Today's Work:**
 - Created `feature/session_3` from `develop` for Session 3. Session 3 topic: **oops** — both PDFs are the Week 3 OOP set, covering classes and objects, constructors, instance vs static members, inheritance, `instanceof` dispatch, object references and null safety, and composition.
 - Solved all 5 live-session practice problems in `oops/class_problems/`:
   - `AttendanceSystem.java` — `SrmStudent` with a constructor, instance `isEligible()`, and static `classAverage()` over an array of students.
