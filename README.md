@@ -15,6 +15,36 @@ Branch model:
 ## Date: 11-09-2026
 
 **Today's Work:**
+- Created `feature/session_5` from `develop` for Session 5. Session 5 topic: **access_modifiers_and_encapsulation** — `private`/default/`protected`/`public` visibility rules, encapsulation with validated accessors, defensive copying, JavaBean conventions and true immutability.
+- Solved all 5 live-session practice problems in `access_modifiers_and_encapsulation/class_problems/`:
+  - `FieldVisibilityIntakeValidator.java` — a rule-table linter for the three basic access contexts, plus `PatientRecord` with one field at each of the four access levels and a constructor that rejects a short or blank `patientId`.
+  - `CrossPackageInheritanceReach.java` — adds the two subclass-in-a-different-package contexts and prints the full five-context visibility matrix.
+  - `VitalsMonitoringEncapsulationGuard.java` — all fields private, out-of-range readings silently rejected, the array constructor reusing `recordReading()`, and a fresh defensive copy on every read.
+  - `PatientProfileJavaBean.java` — three constructors chained with `this(...)`, a write-once `setPatientId`, and a locker PIN that is settable but has no getter anywhere.
+  - `ImmutableDischargeSummaryLedger.java` — final fields, format-validated medication codes, defensive copies both ways, a wither method, a static block, and a null-tolerant nightly batch.
+- Solved all 5 take-home assignment problems in `access_modifiers_and_encapsulation/assigment_problems/`:
+  - `MembershipFieldReachChecker.java` — same rule table with results grouped per modifier instead of a flat total.
+  - `ReferenceDeskSubclassReach.java` — five-context classification plus `describeContext()` title-casing.
+  - `BookCopyCirculationGuard.java` — copy counts that can never go below zero or above the total.
+  - `LibraryMemberJavaBean.java` — chained constructors, write-once membership id, write-only security answer.
+  - `ImmutableLoanReceiptLedger.java` — immutable loan receipt with "BK-" + 3 digit validation and a null-tolerant nightly ledger.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDFs.
+
+**Next Session Plan:**
+- Revise the whole semester's branches before the review, since this was the last of the five sessions.
+- Read up on why calling an overridable method from a constructor is unsafe, which is the warning that came up this week.
+- Practise writing immutable classes that hold collections rather than plain arrays.
+
+**Issues Faced:**
+- Problem 5 asks for `DischargeSummary` to be a `final` class, but also asks for `CriticalCareDischargeSummary` to be handled through a `DischargeSummary[]` with `instanceof`. A final class cannot be extended, so the two requirements cannot both hold. Kept the immutability that actually matters — private final fields, final methods, defensive copies in and out — and left the class extensible so the batch signature works. The same conflict appears in the assignment's `LoanReceipt`.
+- Calling the public `setPatientId(...)` from the constructor triggered a `this-escape` warning, because a subclass could override it before the object is fully built. Moved the real logic into a private helper that both the constructor and the setter call, which keeps the write-once behaviour and clears the warning.
+- Both PDFs are headed "Week 6" even though they are the Week 5 upload, so the branch follows the session number rather than the header.
+
+---
+
+## Date: 11-09-2026
+
+**Today's Work:**
 - Created `feature/session_4` from `develop` for Session 4. Session 4 topic: **constructors_and_keywords** — taken from the PDFs' own footer, "Constructors and Java Keywords": parameterized constructors as validation gates, `this(...)` chaining, `this` for field/parameter clashes, `final` at variable/method/class level, `static` initialiser blocks and `instanceof` dispatch.
 - Solved all 5 live-session practice problems in `constructors_and_keywords/class_problems/`:
   - `BusTicketBookingValidator.java` — `BusTicket` with no usable no-arg constructor; invalid bookings fail at construction, duplicates are counted separately, and check-in is idempotent.
