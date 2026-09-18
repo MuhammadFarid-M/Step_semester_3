@@ -12,6 +12,34 @@ Branch model:
 
 ---
 
+## Date: 18-09-2026
+
+**Today's Work:**
+- Created `feature/session_6` from `develop` for Session 6. Session 6 topic: **inheritance_and_polymorphism** — single, multilevel and hierarchical inheritance, `super(...)` constructor forwarding, `@Override` with `super.method(...)`, polymorphic dispatch, `instanceof`-guarded downcasting and method overloading.
+- Solved all 5 live-session practice problems in `inheritance_and_polymorphism/class_problems/`:
+  - `TicketHierarchyFoundation.java` — `WorkshopTicket extends EventTicket` forwarding shared fields through `super(...)`; `registerBatch` counts rejections with try/catch instead of duplicating the validation rule.
+  - `ThreeShapesOfOneFamilyTree.java` — `PremiumWorkshopTicket` three levels deep and `HackathonTicket` on an independent branch, classified by `instanceof` alone, with a total that never checks a type.
+  - `LateRegistrationPenaltyOverride.java` — `@Override` calling `super.applyLateFee(amount * 2)` so the deduction and the audit recording both stay in the parent, with a defensive copy on every read.
+  - `NightlyTicketAnnouncer.java` — polymorphic `printTicket()` assembled with `StringBuilder`, plus an `instanceof`-guarded downcast and a demonstration of the `ClassCastException` the guard prevents.
+  - `FestWideTicketIssuance.java` — shared static counter feeding a `final` ticket id, character-by-character promo code validation, and two overloaded `pay(...)` methods where the mode-aware one delegates to the flat one.
+- Solved all 5 take-home assignment problems in `inheritance_and_polymorphism/assigment_problems/`:
+  - `RaceEntryFoundation.java` — validated `RaceEntry` constructor with batch bib registration.
+  - `ThreeShapesOfOneRaceFamily.java` — `EliteRunnerEntry` and `RelayTeamEntry` on the two different shapes of the family.
+  - `LateWithdrawalPenaltyOverride.java` — doubled runner penalty through `super`, with a tamper-proof history.
+  - `RaceDayAnnouncerBoard.java` — polymorphic `announce()` with a guarded relay-team downcast.
+  - `RaceWideBibIssuance.java` — static bib counter that only a successful construction increments, discount code checks and a null-tolerant `settleNight`.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDFs.
+
+**Next Session Plan:**
+- Revise abstract classes and interfaces, which are the natural next step after this week's overriding work.
+- Practise replacing `instanceof` chains with polymorphic methods, since Problem 2 showed how much cleaner the total became once no type check was needed.
+
+**Issues Faced:**
+- Problems 1 and 3 use different constructor shapes for the same class names, and Problem 5 restarts the ticket numbering, so each problem keeps its own self-contained copy of the hierarchy as static nested classes. That keeps one `.java` file per problem and avoids the auxiliary-class warnings that sharing classes across files produced in earlier sessions.
+- The static counters only increment on a successful construction, so validation has to run before the counter is touched — otherwise a rejected entry would still consume an id.
+
+---
+
 ## Date: 11-09-2026
 
 **Today's Work:**
