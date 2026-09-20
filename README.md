@@ -12,6 +12,28 @@ Branch model:
 
 ---
 
+## Date: 20-09-2026
+
+**Today's Work:**
+- Created `feature/session_7` from `develop` for Session 7. Session 7 topic: **abstraction_and_interfaces** — abstract classes and abstract methods, interfaces as capability contracts, IS-A versus CAN-DO design, method overloading as compile-time polymorphism, upcasting and `instanceof` against an interface type.
+- Solved all 5 live-session practice problems in `abstraction_and_interfaces/class_problems/`:
+  - `CheckoutPaymentHandler.java` — abstract `PaymentMethod` assigning a `final` transaction id from a shared static counter, an overloaded `processPayment(amount, note)` that delegates to the single-argument version, and a printer that never checks which subclass it was handed.
+  - `HomeSafetyAlertNetwork.java` — `Alertable` implemented by a three-deep sensor chain and by `SmokeDetector`, which shares no ancestry with the sensors at all; `DualZoneMotionSensor` reuses `super.sendAlert(...)` instead of rebuilding the message.
+  - `QuarterlyBonusCalculator.java` — abstract `StaffMember` whose one-argument constructor chains via `this(baseSalary, 0.10)`, a salary setter that rejects negatives, and an audit lookup that tests `instanceof Auditable` rather than a concrete class.
+  - `UniversalMediaLauncher.java` — `Playable` with an overloaded `play(int fromSecond)`; `AudioFile` extends `MediaFile` because it genuinely is a file, while `Podcast` only implements the interface.
+  - `CommunityLibraryCheckoutSystem.java` — `Textbook` and `Magazine` sit under the same abstract parent but adopt different capability interfaces, and `reserveIfSupported(Object)` works on anything at all.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDF.
+
+**Next Session Plan:**
+- Add this session's assignment problems to `assigment_problems/` once that PDF is available.
+- Practise writing default and static methods on interfaces, which this session's problems did not need.
+
+**Issues Faced:**
+- Only the practice PDF was available for this session, so `assigment_problems/` was created for the package structure but is still empty.
+- Assigning the salary directly from the constructor while also exposing a public `setSalary(...)` would have called an overridable method during construction, so both routes go through one private helper — the same fix as Session 5.
+
+---
+
 ## Date: 18-09-2026
 
 **Today's Work:**
