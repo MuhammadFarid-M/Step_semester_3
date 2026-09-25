@@ -22,15 +22,22 @@ Branch model:
   - `QuarterlyBonusCalculator.java` — abstract `StaffMember` whose one-argument constructor chains via `this(baseSalary, 0.10)`, a salary setter that rejects negatives, and an audit lookup that tests `instanceof Auditable` rather than a concrete class.
   - `UniversalMediaLauncher.java` — `Playable` with an overloaded `play(int fromSecond)`; `AudioFile` extends `MediaFile` because it genuinely is a file, while `Podcast` only implements the interface.
   - `CommunityLibraryCheckoutSystem.java` — `Textbook` and `Magazine` sit under the same abstract parent but adopt different capability interfaces, and `reserveIfSupported(Object)` works on anything at all.
-- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDF.
+- Solved all 5 take-home assignment problems in `abstraction_and_interfaces/assigment_problems/`:
+  - `BasicDrawingCanvas.java` — abstract `Shape` with a `final` id from a shared counter and two overloaded `scale(...)` methods that every subclass inherits unchanged.
+  - `OneClickDataExport.java` — `ReportGenerator` and `UserProfile` implement `Exportable` while sharing no parent at all, with one shared export counter between them.
+  - `FleetMaintenanceTracker.java` — abstract `ServiceableVehicle` with a mileage setter that rejects negatives, a three-deep forklift chain reusing `super.performMaintenance()`, and an insurance lookup testing `instanceof Insurable`.
+  - `ArenaBattleSimulator.java` — `Attackable` carrying an overloaded `attack(String weaponName)`; `Warrior` implements two interfaces while `Trap` implements only `Defendable`.
+  - `ConnectedHomeControlPanel.java` — `WashingMachine` and `Refrigerator` sit under one abstract parent with different capabilities, and `MobileApp` joins `connectAll(...)` without being a device.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in both problem PDFs.
 
 **Next Session Plan:**
-- Add this session's assignment problems to `assigment_problems/` once that PDF is available.
 - Practise writing default and static methods on interfaces, which this session's problems did not need.
+- Revise when a shared abstract parent is the right call versus a capability interface, since both PDFs kept contrasting the two.
 
 **Issues Faced:**
-- Only the practice PDF was available for this session, so `assigment_problems/` was created for the package structure but is still empty.
+- The assignment PDF arrived after the practice work was already pushed, so the assignment problems were added to the same `feature/session_7` branch in a second commit.
 - Assigning the salary directly from the constructor while also exposing a public `setSalary(...)` would have called an overridable method during construction, so both routes go through one private helper — the same fix as Session 5.
+- `Shape.scale(...)` has to be concrete on the abstract parent yet affect each subclass's own dimensions, so the parent holds the scale factors and every subclass multiplies by them inside `calculateArea()`.
 
 ---
 
