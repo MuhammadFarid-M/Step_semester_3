@@ -12,6 +12,30 @@ Branch model:
 
 ---
 
+## Date: 27-09-2026
+
+**Today's Work:**
+- Created `feature/session_8` from `develop` for Session 8. Session 8 topic: **oop_design_and_uml** — this paper is a design set rather than a syntax set: identifying classes, attributes, operations, relationships and multiplicities, then implementing the workflow so new types plug in without the core process changing.
+- Solved all 5 coding problems in `oop_design_and_uml/class_problems/`:
+  - `OnlineExaminationSystem.java` — abstract `Question` so `MultipleChoiceQuestion` and `TrueFalseQuestion` evaluate polymorphically, with an `Attempt` that refuses further answers once submitted.
+  - `VehicleRentalSystem.java` — abstract `Vehicle` holding each category's own charge rule, and a `RentalService` that blocks a second active rental on the same vehicle and frees it on return.
+  - `HotelBookingSystem.java` — date-range overlap detection with `LocalDate`, per-category nightly pricing, and a cancellation deadline two days before check-in.
+  - `EmployeeLeaveRequestSystem.java` — full-time, part-time and contract employees with their own allowances, and a leave status that can never revert to Pending once approved or rejected.
+  - `FoodOrderPaymentSystem.java` — line items composed inside the order, a `PaymentMethod` interface so a new method needs no change to `Order`, and an event listener that notifies the customer.
+- Answered the 10 quiz questions and the 5 written concept questions in `oop_design_and_uml/QUIZ_AND_CONCEPT_ANSWERS.md`, covering invariants, composition over inheritance, sequence diagram reasoning, dependency on abstractions, and aggregation versus composition.
+- Compiled every file with `javac -Xlint:all` (zero warnings) and ran each program; output matches the sample input/output given in the problem PDF.
+
+**Next Session Plan:**
+- Add this session's assignment problems to `assigment_problems/` once that PDF is available.
+- Practise drawing the class and sequence diagrams for these same five systems by hand, since the paper asks for the models as well as the code.
+
+**Issues Faced:**
+- This paper has a written half as well as a coding half, and answers to quiz and concept questions do not belong in a `.java` file, so they are kept as a markdown file at the root of the topic package.
+- The sample output numbers the two food orders #123 and #124, so the empty-cart rejection had to be demonstrated on the first order before its items were added rather than on a throwaway third order, which would have consumed an order number.
+- Only the practice PDF was supplied for this session, so `assigment_problems/` exists for the package structure but is still empty.
+
+---
+
 ## Date: 20-09-2026
 
 **Today's Work:**
