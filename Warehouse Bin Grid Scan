@@ -1,0 +1,31 @@
+def warehouseSummary(grid):
+    """
+    Calculates total items in the warehouse grid and finds coordinates of max items.
+    """
+    if not grid or not grid[0]:
+        return {"total": 0, "maxCoordinate": None}
+
+    total_items = 0
+    max_items = -1
+    max_coord = (0, 0)
+
+    rows = len(grid)
+    cols = len(grid[0])
+
+    for row in range(rows):
+        for col in range(cols):
+            val = grid[row][col]
+            total_items += val
+
+            # Update max coordinate (strictly greater ensures first occurrence row-by-row, left-to-right)
+            if val > max_items:
+                max_items = val
+                max_coord = (row, col)
+
+    return {"total": total_items, "maxCoordinate": max_coord}
+
+
+# --- Verification with Example ---
+grid = [[4, 9, 2], [7, 1, 6], [3, 12, 5]]
+print(warehouseSummary(grid))
+# Output: {'total': 49, 'maxCoordinate': (2, 1)}
