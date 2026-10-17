@@ -1,0 +1,76 @@
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class PalindromeTrain {
+
+    public static boolean isPalindrome(Node head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        Node slow = head;
+        Node fast = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node secondHalfHead = reverseList(slow.next);
+        Node p1 = head;
+        Node p2 = secondHalfHead;
+        boolean result = true;
+
+        while (p2 != null) {
+            if (p1.data != p2.data) {
+                result = false;
+                break;
+            }
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        slow.next = reverseList(secondHalfHead);
+
+        return result;
+    }
+
+    private static Node reverseList(Node head) {
+        Node prev = null;
+        Node curr = head;
+        while (curr != null) {
+            Node nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
+
+    public static void main(String[] args) {
+        Node h1 = new Node(1);
+        h1.next = new Node(2);
+        h1.next.next = new Node(3);
+        h1.next.next.next = new Node(2);
+        h1.next.next.next.next = new Node(1);
+        System.out.println(isPalindrome(h1));
+
+        Node h2 = new Node(1);
+        h2.next = new Node(2);
+        h2.next.next = new Node(3);
+        h2.next.next.next = new Node(2);
+        System.out.println(isPalindrome(h2));
+
+        Node h3 = new Node(1);
+        h3.next = new Node(2);
+        h3.next.next = new Node(2);
+        h3.next.next.next = new Node(1);
+        System.out.println(isPalindrome(h3));
+    }
+}
