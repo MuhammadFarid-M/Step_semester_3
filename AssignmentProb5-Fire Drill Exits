@@ -1,0 +1,65 @@
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class FireDrillExits {
+
+    public static int[][] exitDistance(char[][] plan) {
+        if (plan == null || plan.length == 0 || plan[0].length == 0) {
+            return new int[0][0];
+        }
+
+        int rows = plan.length;
+        int cols = plan[0].length;
+        int[][] dist = new int[rows][cols];
+        Queue<int[]> queue = new LinkedList<>();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (plan[i][j] == 'E') {
+                    dist[i][j] = 0;
+                    queue.offer(new int[]{i, j});
+                } else {
+                    dist[i][j] = -1;
+                }
+            }
+        }
+
+        int[] dr = {-1, 1, 0, 0};
+        int[] dc = {0, 0, -1, 1};
+
+        while (!queue.isEmpty()) {
+            int[] curr = queue.poll();
+            int r = curr[0];
+            int c = curr[1];
+
+            for (int i = 0; i < 4; i++) {
+                int nr = r + dr[i];
+                int nc = c + dc[i];
+
+                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && plan[nr][nc] == '.' && dist[nr][nc] == -1) {
+                    dist[nr][nc] = dist[r][c] + 1;
+                    queue.offer(new int[]{nr, nc});
+                }
+            }
+        }
+
+        return dist;
+    }
+
+    public static void main(String[] args) {
+        char[][] plan = {
+            {'.', '#', '.', 'E'},
+            {'.', '.', '.', '#'},
+            {'E', '#', '.', '.'}
+        };
+
+        int[][] result = exitDistance(plan);
+        for (int[] row : result) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```[cite: 12]
